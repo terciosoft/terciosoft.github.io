@@ -1,0 +1,64 @@
+/* TércioSoft — same palette and type as the Arrasta app. */
+:root {
+  --bg: #E8EBF3; --surface: #FFFFFF; --ink: #161A27; --muted: #5E6580; --line: #D3D8E6;
+  --done: #128C64; --later: #C96F14; --focus: #4352D0;
+  --shadow: 0 1px 2px rgba(22,26,39,.06), 0 12px 32px -12px rgba(22,26,39,.22);
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #10121A; --surface: #1B1F2C; --ink: #EDEFF7; --muted: #959CB5; --line: #2D3346;
+    --done: #34C493; --later: #F0A050; --focus: #8591F7;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 14px 36px -12px rgba(0,0,0,.7);
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+a { color: var(--focus); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+
+header.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 0; }
+.brand { font-family: var(--display); font-weight: 800; font-size: 22px; letter-spacing: -.02em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: baseline; gap: 2px; }
+.brand i { width: 7px; height: 7px; border-radius: 50%; background: var(--focus); display: inline-block; }
+header.top nav { display: flex; gap: 16px; font-size: 15px; }
+header.top nav a { color: var(--muted); text-decoration: none; }
+header.top nav a:hover { color: var(--ink); }
+
+h1, h2, h3 { font-family: var(--display); letter-spacing: -.02em; line-height: 1.15; }
+h1 { font-size: clamp(34px, 8vw, 52px); margin: 8px 0 12px; }
+h2 { font-size: 26px; margin: 40px 0 10px; }
+h3 { font-size: 19px; margin: 28px 0 6px; }
+.lead { font-size: 19px; color: var(--muted); margin: 0 0 24px; }
+
+/* App showcase: a card like the ones in the app */
+.app { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: center; margin: 24px 0 48px; }
+@media (min-width: 680px) { .app { grid-template-columns: 1.1fr 1fr; } }
+.card {
+  position: relative; aspect-ratio: 3 / 4; max-width: 340px; width: 100%; margin: 0 auto; border-radius: 28px; padding: 28px 24px;
+  display: flex; flex-direction: column; justify-content: flex-end; gap: 10px; color: #fff; box-shadow: var(--shadow);
+  background: radial-gradient(rgba(255,255,255,.18) 2px, transparent 2.6px) 0 0 / 18px 18px, linear-gradient(160deg, #FF5E4D, #FF9A3D);
+  transform: rotate(-3deg);
+}
+.card .tag { align-self: flex-start; border: 1.5px solid currentColor; border-radius: 999px; padding: 4px 11px; font-size: 13px; font-weight: 600; }
+.card strong { font-family: var(--display); font-size: 34px; line-height: 1.05; letter-spacing: -.02em; }
+.card small { opacity: .85; font-size: 13px; }
+.moves { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 10px; }
+.moves li { display: flex; gap: 12px; align-items: center; background: var(--surface); border-radius: 16px; padding: 12px 16px; box-shadow: var(--shadow); }
+.moves b { font-family: var(--display); min-width: 74px; }
+.moves .r { color: var(--done); } .moves .l { color: var(--later); } .moves .u { color: var(--focus); }
+.store { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 12px 20px; background: var(--ink); color: var(--bg); font-weight: 600; text-decoration: none; }
+.store.soon { opacity: .6; cursor: default; }
+.links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 16px; font-size: 15px; }
+
+/* Legal pages */
+.doc { background: var(--surface); border-radius: 24px; padding: 8px 24px 28px; box-shadow: var(--shadow); margin-bottom: 40px; }
+.doc .when { color: var(--muted); font-size: 15px; margin-top: -4px; }
+table { width: 100%; border-collapse: collapse; font-size: 16px; }
+th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--display); }
+
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 40px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 8px 18px; justify-content: space-between; }
+footer a { color: var(--muted); }
